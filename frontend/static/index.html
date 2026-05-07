@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PetCare RAG Assistant</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <div class="ambient-paw paw-one"><i data-lucide="paw-print"></i></div>
+      <div class="ambient-paw paw-two"><i data-lucide="paw-print"></i></div>
+      <div class="ambient-paw paw-three"><i data-lucide="paw-print"></i></div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><i data-lucide="paw-print"></i> AI pet-care knowledge demo</p>
+          <h1>ถามเรื่องสัตว์เลี้ยง<br />ให้ AI ช่วยตอบ</h1>
+          <p class="subtitle">
+            ค้นข้อมูลสายพันธุ์ นิสัย และการดูแลแมวกับสุนัข ด้วยระบบ RAG + Gemini
+          </p>
+          <div class="badges" aria-label="Project badges">
+            <span>Cat Care</span>
+            <span>RAG System</span>
+            <span>Gemini AI</span>
+            <span>Student Project</span>
+          </div>
+          <div class="metrics" aria-label="System flow highlights">
+            <article>
+              <i data-lucide="search"></i>
+              <strong>RAG Search</strong>
+              <span>ค้น context ที่เกี่ยวข้องก่อนตอบ</span>
+            </article>
+            <article>
+              <i data-lucide="bot"></i>
+              <strong>Gemini Answer</strong>
+              <span>สรุปคำตอบให้อ่านง่าย</span>
+            </article>
+            <article>
+              <i data-lucide="book-open"></i>
+              <strong>Pet Knowledge Base</strong>
+              <span>อ้างอิงข้อมูลสายพันธุ์สัตว์เลี้ยง</span>
+            </article>
+          </div>
+        </div>
+        <div class="pet-panel" aria-hidden="true">
+          <div class="panel-glow"></div>
+          <div class="mini-card top-card">FAISS Match</div>
+          <div class="pet-duo">
+            <div class="pet-face cat-face">
+              <span class="cat-ear left"></span>
+              <span class="cat-ear right"></span>
+              <span class="eye left-eye"></span>
+              <span class="eye right-eye"></span>
+              <span class="nose"></span>
+              <span class="mouth"></span>
+              <span class="whisker whisker-left"></span>
+              <span class="whisker whisker-right"></span>
+            </div>
+            <div class="pet-face dog-face">
+              <span class="dog-ear left"></span>
+              <span class="dog-ear right"></span>
+              <span class="eye left-eye"></span>
+              <span class="eye right-eye"></span>
+              <span class="dog-spot"></span>
+              <span class="nose"></span>
+              <span class="mouth"></span>
+            </div>
+          </div>
+          <div class="mini-card bottom-card">Gemini Summary</div>
+          <div class="paw-row">
+            <span><i data-lucide="paw-print"></i></span>
+            <span><i data-lucide="paw-print"></i></span>
+            <span><i data-lucide="paw-print"></i></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="app-grid">
+        <aside class="info-card">
+          <div class="panel-title">
+            <span><i data-lucide="paw-print"></i></span>
+            <div>
+              <h2>คู่มือเดโม</h2>
+              <p>ลองถามเหมือนคุยกับผู้ช่วยดูแลสัตว์เลี้ยง</p>
+            </div>
+          </div>
+
+          <div class="guide-steps">
+            <article>
+              <span>1</span>
+              <p>พิมพ์คำถามเกี่ยวกับแมวหรือสุนัข</p>
+            </article>
+            <article>
+              <span>2</span>
+              <p>ระบบส่งคำถามไปที่ FastAPI backend</p>
+            </article>
+            <article>
+              <span>3</span>
+              <p>RAG ค้นข้อมูล แล้ว Gemini ช่วยสรุปคำตอบ</p>
+            </article>
+          </div>
+
+          <h2 class="section-label"><i data-lucide="sparkles"></i> Prompt chips</h2>
+          <div class="examples">
+            <button type="button">แมวพันธุ์ไหนเหมาะกับคนอยู่คนเดียว</button>
+            <button type="button">สุนัขพันธุ์ไหนขนสั้นดูแลง่าย</button>
+            <button type="button">Persian มีนิสัยยังไง</button>
+            <button type="button">แมวขนยาวต้องดูแลอะไรบ้าง</button>
+          </div>
+
+          <h2 class="section-label"><i data-lucide="layers-3"></i> Tech stack</h2>
+          <div class="stack-grid">
+            <span>FastAPI</span>
+            <span>JavaScript</span>
+            <span>Sentence-BERT</span>
+            <span>FAISS</span>
+            <span>Gemini</span>
+            <span>Render-ready</span>
+          </div>
+        </aside>
+
+        <section class="chat-card" aria-label="PetCare chatbot">
+          <div class="chat-header">
+            <div>
+              <p class="chat-kicker">Live chatbot</p>
+              <h2>ถามน้องผู้ช่วยได้เลย</h2>
+              <p>พิมพ์คำถามเกี่ยวกับแมวหรือสุนัข แล้วให้น้องผู้ช่วยค้นข้อมูลให้</p>
+            </div>
+            <span class="status-pill"><span></span> Backend API</span>
+          </div>
+
+          <div id="messages" class="messages">
+            <article class="bubble assistant">
+              <div class="avatar"><i data-lucide="cat"></i></div>
+              <div class="bubble-body">
+                <strong>น้องผู้ช่วย</strong>
+                <p>สวัสดีค่ะ ลองถามเรื่องนิสัย สายพันธุ์ หรือการดูแลสัตว์เลี้ยงได้เลยนะ</p>
+              </div>
+            </article>
+          </div>
+
+          <form id="ask-form" class="ask-form">
+            <label for="question">คำถามของคุณ</label>
+            <div class="input-row">
+              <input
+                id="question"
+                name="question"
+                type="text"
+                autocomplete="off"
+                placeholder="เช่น แมวพันธุ์ไหนเหมาะกับคอนโด?"
+                required
+              />
+              <button id="ask-button" type="submit"><i data-lucide="send"></i> Ask</button>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/static/script.js"></script>
+  </body>
+</html>

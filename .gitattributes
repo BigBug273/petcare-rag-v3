@@ -1,0 +1,5 @@
+# Git LFS — track large ONNX model files
+# Run: git lfs install && git add .gitattributes
+rag/model_onnx/model_int8.onnx filter=lfs diff=lfs merge=lfs -text
+rag/model_onnx/model_fp32.onnx filter=lfs diff=lfs merge=lfs -text
+*.onnx filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: petcare-rag
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-deploy.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.6"
+      # Memory optimization for 512 MB limit
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MKL_NUM_THREADS
+        value: "1"
+      - key: TOKENIZERS_PARALLELISM
+        value: "false"
+      # Suppress verbose logging from transformers
+      - key: TRANSFORMERS_VERBOSITY
+        value: "error"
+      # Your API key (set this in Render dashboard — don't commit!)
+      - key: GEMINI_API_KEY
+        sync: false

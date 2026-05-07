@@ -1,0 +1,33 @@
+# ============================================================
+# requirements-deploy.txt
+# ============================================================
+# Lightweight dependencies for Render deployment (no PyTorch!)
+#
+# Uses ONNX Runtime instead of PyTorch for Sentence-BERT inference.
+# This reduces runtime RAM from ~800 MB → ~150 MB.
+#
+# For LOCAL DEVELOPMENT, use requirements.txt instead (includes PyTorch).
+# ============================================================
+
+# Core data
+numpy
+pandas
+
+# RAG search — ONNX backend (replaces sentence-transformers + torch)
+onnxruntime>=1.16.0
+tokenizers>=0.21.0
+faiss-cpu
+
+# LLM providers
+google-genai
+google-generativeai
+openai
+
+# Web app
+fastapi
+uvicorn
+pydantic
+
+# Utilities
+python-dotenv
+requests

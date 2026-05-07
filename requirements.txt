@@ -1,0 +1,40 @@
+# ============================================================
+# requirements.txt
+# ============================================================
+# FULL dependencies for LOCAL DEVELOPMENT
+# Includes PyTorch + Sentence-Transformers (for building index, testing)
+# Also includes ONNX Runtime (for running with ONNX model after export)
+#
+# ⚠️ DO NOT use this for Render deployment — too much RAM!
+# Use requirements-deploy.txt instead (no PyTorch).
+# ============================================================
+
+# Core data
+pandas
+numpy
+beautifulsoup4
+
+# RAG search — full PyTorch backend (for local dev / building index)
+sentence-transformers
+faiss-cpu
+transformers
+
+# RAG search — ONNX Runtime backend (for deployment / lightweight inference)
+# search.py auto-detects: if model_int8.onnx exists → uses ONNX, else → PyTorch
+onnxruntime>=1.16.0
+tokenizers>=0.21.0
+
+# LLM providers
+google-genai
+google-generativeai
+openai
+
+# Web app
+fastapi
+uvicorn
+pydantic
+streamlit==1.40.0
+
+# Utilities
+python-dotenv
+requests

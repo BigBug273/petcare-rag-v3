@@ -1,0 +1,9 @@
+{
+  "model_name": "paraphrase-multilingual-MiniLM-L12-v2",
+  "max_seq_length": 128,
+  "embedding_dimension": 384,
+  "pooling_mode": "mean",
+  "normalize": true,
+  "onnx_quantization": "int8",
+  "original_framework": "sentence-transformers"
+}

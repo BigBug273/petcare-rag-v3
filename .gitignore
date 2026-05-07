@@ -1,0 +1,34 @@
+.env
+__pycache__/
+*.py[cod]
+streamlit-test.log
+streamlit-test.err.log
+streamlit-ui.log
+streamlit-ui.err.log
+logs/*.log
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large FP32 ONNX model (only INT8 is needed for deployment)
+rag/model_onnx/model_fp32.onnx
+rag/model_onnx/model.onnx
+rag/model_onnx/model.onnx.data
+rag/model_onnx/model.safetensors
+
+# HuggingFace cache (model is downloaded at build time or committed as ONNX)
+.cache/
+
+# PyTorch binaries (not needed when using ONNX)
+*.bin
+!rag/model_onnx/*.json
